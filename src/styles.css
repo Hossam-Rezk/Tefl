@@ -4,6 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
 @theme inline {
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "Figtree", "Tajawal", system-ui, sans-serif;
@@ -128,3 +129,22 @@
 }
 @utility animate-check { animation: check-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
 
+/* ── Website layout utilities ─────────────────────────────────── */
+@utility site-container {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 640px) { padding-inline: 1.5rem; }
+  @media (min-width: 1024px) { padding-inline: 2rem; }
+}
+
+@utility page-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  @media (min-width: 768px) { padding-top: 5rem; padding-bottom: 5rem; }
+}
+
+@utility prose-container {
+  max-width: 65ch;
+}
