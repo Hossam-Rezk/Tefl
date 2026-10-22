@@ -29,12 +29,12 @@ function Learn() {
   return (
     <main>
       <PageTitle title={t("Learn", "تعلّمي")} sub={`${t("Guides for", "أدلة لمرحلة")} ${stageLabel(stage)}`} />
-      <div className="px-4 pt-4"><Pills value={cat} options={opts} onChange={setCat} /></div>
+      <div className="site-container pt-5"><Pills value={cat} options={opts} onChange={setCat} /></div>
 
-      {stage !== "pregnancy" && <div className="px-4 pt-5"><SymptomChecker /></div>}
+      {stage !== "pregnancy" && <div className="site-container pt-6"><SymptomChecker /></div>}
 
       <Section title={t("Articles", "المقالات")}>
-        <div className="space-y-3">
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {list.map((a) => {
             const c = learnCategories.find((x) => x.id === a.cat)!;
             return (

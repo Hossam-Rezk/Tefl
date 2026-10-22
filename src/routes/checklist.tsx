@@ -277,11 +277,11 @@ function ChecklistPage() {
 
   return (
     <main>
-      <div className="px-4 pt-5 pb-2">
+      <div className="site-container pt-8 pb-2">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-2xl font-bold">{t("My Checklist", "قائمتي")}</h1>
-            <p className="mt-0.5 text-sm text-muted-foreground">
+            <h1 className="text-3xl font-bold sm:text-4xl">{t("My Checklist", "قائمتي")}</h1>
+            <p className="mt-1 text-muted-foreground">
               {t("Stage-specific prep items", "بنود التحضير لمرحلتك")}
             </p>
           </div>
@@ -328,7 +328,7 @@ function ChecklistPage() {
         </div>
       </div>
 
-      <div className="space-y-6 px-4 pt-4 pb-4">
+      <div className="grid gap-6 site-container pt-6 pb-10 lg:grid-cols-2">
         {sections.map((section) => {
           const secDone = section.items.filter((i) => done.includes(i.id)).length;
           const secTotal = section.items.length;

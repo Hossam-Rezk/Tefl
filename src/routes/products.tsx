@@ -34,9 +34,9 @@ function Products() {
   return (
     <main>
       <PageTitle title={t("Products & prices", "المنتجات والأسعار")} sub={t("Compare brands and Cairo stores in EGP", "قارني الماركات والمتاجر بالجنيه")} />
-      <div className="px-4 pt-4"><Pills value={cat} options={opts} onChange={setCat} /></div>
+      <div className="site-container pt-5"><Pills value={cat} options={opts} onChange={setCat} /></div>
 
-      <div className="grid grid-cols-2 gap-3 px-4 pt-4">
+      <div className="grid grid-cols-2 gap-4 site-container pt-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {list.map((p) => {
           const [lo, hi] = priceRange(p);
           return (

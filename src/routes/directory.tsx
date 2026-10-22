@@ -68,8 +68,8 @@ function Directory() {
     <main>
       <PageTitle title={t("Cairo directory", "دليل القاهرة")} sub={t("Doctors, hospitals, nurseries and schools near you", "أطباء ومستشفيات وحضانات ومدارس قريبة منك")} />
 
-      <div className="px-4 pt-4">
-        <div className="grid grid-cols-4 gap-1 rounded-2xl bg-muted p-1">
+      <div className="site-container pt-6">
+        <div className="grid grid-cols-4 gap-1 rounded-2xl bg-muted p-1 sm:w-fit">
           {tabs.map((x) => (
             <button key={x.id} onClick={() => setKind(x.id)} className={`relative rounded-xl py-2 text-xs font-semibold ${kind === x.id ? "bg-card text-primary shadow-soft" : "text-muted-foreground"}`}>
               {t(x.en, x.ar)}
@@ -86,7 +86,7 @@ function Directory() {
         <p className="mt-3 text-xs text-muted-foreground">{list.length} {t("results", "نتيجة")}{comparable && ` · ${t(`Select up to ${MAX_COMPARE} to compare`, "اختاري حتى ٣ للمقارنة")}`}</p>
       </div>
 
-      <div className="space-y-3 px-4 pt-3">
+      <div className="grid gap-3 px-4 pt-3 md:grid-cols-2 xl:grid-cols-3">
         {list.map((p) => {
           const on = sel.includes(p.id);
           return (

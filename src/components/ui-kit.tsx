@@ -4,9 +4,9 @@ import { useApp } from "@/lib/app-state";
 
 export function Section({ title, action, children }: { title: string; action?: ReactNode; children: ReactNode }) {
   return (
-    <section className="px-4 pt-6">
-      <div className="mb-3 flex items-end justify-between gap-2">
-        <h2 className="text-xl font-bold flex items-center gap-2">
+    <section className="site-container pt-10 pb-4">
+      <div className="mb-5 flex items-end justify-between gap-2">
+        <h2 className="text-2xl font-bold flex items-center gap-2">
           <span className="block h-5 w-1 rounded-full bg-coral" aria-hidden />
           {title}
         </h2>
@@ -19,9 +19,9 @@ export function Section({ title, action, children }: { title: string; action?: R
 
 export function PageTitle({ title, sub }: { title: string; sub?: string }) {
   return (
-    <div className="px-4 pt-5">
-      <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
-      {sub && <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{sub}</p>}
+    <div className="site-container pt-10 pb-2">
+      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h1>
+      {sub && <p className="mt-2 text-muted-foreground leading-relaxed max-w-2xl">{sub}</p>}
     </div>
   );
 }
