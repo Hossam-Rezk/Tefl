@@ -26,22 +26,22 @@ function Profile() {
   return (
     <main>
       <PageTitle title={t("My journey", "رحلتي")} />
-      <div className="px-4 pt-4">
-        <div className="flex items-center gap-4 rounded-3xl bg-hero p-5 text-primary-foreground shadow-soft">
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-foreground/15 text-4xl">{current.emoji}</div>
+      <div className="site-container pt-6">
+        <div className="flex items-center gap-4 rounded-3xl bg-hero p-6 text-primary-foreground shadow-soft">
+          <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary-foreground/15 text-5xl">{current.emoji}</div>
           <div className="flex-1">
-            <div className="text-xs opacity-80">{t("Current stage", "المرحلة الحالية")}</div>
-            <div className="font-display text-xl font-bold">{lang === "ar" ? current.ar : current.en}</div>
-            <div className="text-sm opacity-90">📍 {areaLabel(area)}, {t("Cairo", "القاهرة")}</div>
+            <div className="text-sm opacity-80">{t("Current stage", "المرحلة الحالية")}</div>
+            <div className="font-display text-2xl font-bold">{lang === "ar" ? current.ar : current.en}</div>
+            <div className="text-sm opacity-90 mt-0.5">📍 {areaLabel(area)}, {t("Cairo", "القاهرة")}</div>
           </div>
         </div>
-        <button onClick={() => setWizard(true)} className="mt-3 w-full rounded-2xl border-2 border-primary py-3 font-semibold text-primary">
+        <button onClick={() => setWizard(true)} className="mt-4 w-full rounded-2xl border-2 border-primary py-3 font-semibold text-primary hover:bg-primary-soft transition sm:w-auto sm:px-8">
           {t("Open onboarding wizard", "افتحي معالج البداية")}
         </button>
       </div>
 
       <Section title={t("Switch stage", "تغيير المرحلة")}>
-        <div className="space-y-2">
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {stages.map((s, i) => (
             <button key={s.id} onClick={() => setStage(s.id)} className={`flex w-full items-center gap-3 rounded-2xl border p-3 text-start ${stage === s.id ? "border-primary bg-primary-soft" : "bg-card"}`}>
               <span className="text-2xl">{s.emoji}</span>
