@@ -6,7 +6,10 @@ export function Section({ title, action, children }: { title: string; action?: R
   return (
     <section className="px-4 pt-6">
       <div className="mb-3 flex items-end justify-between gap-2">
-        <h2 className="text-xl font-bold">{title}</h2>
+        <h2 className="text-xl font-bold flex items-center gap-2">
+          <span className="block h-5 w-1 rounded-full bg-coral" aria-hidden />
+          {title}
+        </h2>
         {action}
       </div>
       {children}
@@ -17,8 +20,8 @@ export function Section({ title, action, children }: { title: string; action?: R
 export function PageTitle({ title, sub }: { title: string; sub?: string }) {
   return (
     <div className="px-4 pt-5">
-      <h1 className="text-2xl font-bold">{title}</h1>
-      {sub && <p className="mt-1 text-sm text-muted-foreground">{sub}</p>}
+      <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
+      {sub && <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{sub}</p>}
     </div>
   );
 }
@@ -94,8 +97,11 @@ export function Sheet({ open, onClose, title, children }: { open: boolean; onClo
 export function Bullets({ items }: { items: string[] }) {
   return (
     <ul className="space-y-2">
-      {items.map((p) => (
-        <li key={p} className="flex gap-2 text-sm"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />{p}</li>
+      {items.map((p, i) => (
+        <li key={p} className="flex gap-2 text-sm animate-slide-up" style={{ animationDelay: `${i * 40}ms` }}>
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
+          {p}
+        </li>
       ))}
     </ul>
   );

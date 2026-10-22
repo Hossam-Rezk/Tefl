@@ -130,7 +130,7 @@ function RootComponent() {
 function Frame() {
   const { lang } = useApp();
   return (
-    <div dir={lang === "ar" ? "rtl" : "ltr"} lang={lang} className="mx-auto min-h-screen max-w-[480px] bg-background pb-24 sm:shadow-phone">
+    <div dir={lang === "ar" ? "rtl" : "ltr"} lang={lang} className="mx-auto min-h-screen max-w-[480px] bg-background pb-28 sm:shadow-phone">
       <Header />
       <Outlet />
       <BottomNav />

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChecklistRouteImport } from './routes/checklist'
 import { Route as DirectoryRouteImport } from './routes/directory'
 import { Route as LearnRouteImport } from './routes/learn'
 import { Route as ProductsRouteImport } from './routes/products'
@@ -18,6 +19,11 @@ import { Route as ProfileRouteImport } from './routes/profile'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChecklistRoute = ChecklistRouteImport.update({
+  id: '/checklist',
+  path: '/checklist',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DirectoryRoute = DirectoryRouteImport.update({
@@ -43,6 +49,7 @@ const ProfileRoute = ProfileRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/checklist': typeof ChecklistRoute
   '/directory': typeof DirectoryRoute
   '/learn': typeof LearnRoute
   '/products': typeof ProductsRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/checklist': typeof ChecklistRoute
   '/directory': typeof DirectoryRoute
   '/learn': typeof LearnRoute
   '/products': typeof ProductsRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/checklist': typeof ChecklistRoute
   '/directory': typeof DirectoryRoute
   '/learn': typeof LearnRoute
   '/products': typeof ProductsRoute
@@ -65,14 +74,15 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/directory' | '/learn' | '/products' | '/profile'
+  fullPaths: '/' | '/checklist' | '/directory' | '/learn' | '/products' | '/profile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/directory' | '/learn' | '/products' | '/profile'
-  id: '__root__' | '/' | '/directory' | '/learn' | '/products' | '/profile'
+  to: '/' | '/checklist' | '/directory' | '/learn' | '/products' | '/profile'
+  id: '__root__' | '/' | '/checklist' | '/directory' | '/learn' | '/products' | '/profile'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChecklistRoute: typeof ChecklistRoute
   DirectoryRoute: typeof DirectoryRoute
   LearnRoute: typeof LearnRoute
   ProductsRoute: typeof ProductsRoute
@@ -86,6 +96,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checklist': {
+      id: '/checklist'
+      path: '/checklist'
+      fullPath: '/checklist'
+      preLoaderRoute: typeof ChecklistRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/directory': {
@@ -121,6 +138,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChecklistRoute: ChecklistRoute,
   DirectoryRoute: DirectoryRoute,
   LearnRoute: LearnRoute,
   ProductsRoute: ProductsRoute,
